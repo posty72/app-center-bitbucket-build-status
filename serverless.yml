@@ -1,0 +1,14 @@
+service: app-center-build-hook # NOTE: update this with your service name
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+
+functions:
+  buildStatus:
+    handler: handler.buildStatus
+    events:
+      - http:
+          path: app-center
+          method: post
+          handler: handler.buildStatus
